@@ -8,7 +8,7 @@ from raptus.multilanguageplone.extender.base import DefaultExtender
 
 from Products.ATContentTypes.configuration import zconf
 from Products.Archetypes.Field import TextField, LinesField, StringField
-from Products.Archetypes.atapi import AnnotationStorage
+from Products.Archetypes.atapi import AnnotationStorage, ATFieldProperty
 
 from Products.PloneFormGen.content.formLikertField import FGLikertField, default_questions, default_answers
 from Products.PloneFormGen import PloneFormGenMessageFactory as _
@@ -44,4 +44,8 @@ class FGLikertFieldExtender(DefaultExtender):
             ),
         ),
     ]
+    
+    # Set AT field property fields for all extended fields.
+    FGLikertField.likertQuestions = ATFieldProperty('likertQuestions')
+    FGLikertField.likertAnswers = ATFieldProperty('likertAnswers')
 

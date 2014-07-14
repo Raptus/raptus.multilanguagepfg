@@ -9,7 +9,7 @@ from raptus.multilanguageplone.extender.base import DefaultExtender
 from Products.ATContentTypes.configuration import zconf
 from Products.Archetypes.Field import TextField, LinesField, StringField
 from Products.Archetypes.Widget import TextAreaWidget, RichWidget
-from Products.Archetypes.atapi import AnnotationStorage
+from Products.Archetypes.atapi import AnnotationStorage, ATFieldProperty
 
 from Products.PloneFormGen.content.fieldsBase import BaseFormField
 from Products.PloneFormGen import PloneFormGenMessageFactory as _
@@ -90,7 +90,6 @@ class BaseFormFieldExtender(DefaultExtender):
         ),
     )
 
-
     def getFields(self):
         
         defaultFields = [f for f in DefaultExtender.fields if f.getName() in FROM_BASE_SCHEMA]
@@ -111,5 +110,10 @@ class BaseFormFieldExtender(DefaultExtender):
             
         if self.context.schema.get('fgVocabulary'):
             defaultFields.append(self.fgVocabulary)
+            
 
         return defaultFields
+    
+    
+    BaseFormField.fgDefault = ATFieldProperty('fgDefault')
+    BaseFormField.fgVocabulary = ATFieldProperty('fgVocabulary')

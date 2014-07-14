@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.0b4 (unreleased)
+------------------
+
+- Extended the following FormMailerAdapter fields to add support for multilingualism: msg_subjejct, body_pre, body_post, body_footer.
+- Setting the extended fields as class attributes (ATFieldProperty) on the extended content type to avoid that the getter method overrides the attribute. 
+
+
 1.0b3 (2011-11-29)
 ------------------
 

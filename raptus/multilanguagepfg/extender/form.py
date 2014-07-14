@@ -7,7 +7,7 @@ from raptus.multilanguageplone.extender import fields
 from raptus.multilanguageplone.extender.folder import FolderExtender
 
 from Products.ATContentTypes.configuration import zconf
-from Products.Archetypes.atapi import AnnotationStorage
+from Products.Archetypes.atapi import AnnotationStorage, ATFieldProperty
 
 from Products.PloneFormGen.content.form import FormFolder
 from Products.PloneFormGen import PloneFormGenMessageFactory as _
@@ -79,8 +79,9 @@ class FormFolderExtender(FolderExtender):
         ),
     ]
     
-
-
-
-
     
+    # Set AT field property fields for all extended fields.
+    FormFolder.submitLabel = ATFieldProperty('submitLabel')
+    FormFolder.resetLabel = ATFieldProperty('resetLabel')
+    FormFolder.formPrologue = ATFieldProperty('formPrologue')
+    FormFolder.formEpilogue = ATFieldProperty('formEpilogue')

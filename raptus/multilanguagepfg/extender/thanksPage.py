@@ -11,7 +11,7 @@ from Products.ATContentTypes.configuration import zconf
 from Products.PloneFormGen.content.thanksPage import FormThanksPage
 from Products.PloneFormGen import PloneFormGenMessageFactory as _
 
-from Products.Archetypes.atapi import AnnotationStorage
+from Products.Archetypes.atapi import AnnotationStorage, ATFieldProperty
 
 class ThanksPageExtender(DefaultExtender):
 
@@ -80,6 +80,11 @@ class ThanksPageExtender(DefaultExtender):
                 ),
             ),
         ]
+
+    # Set AT field property fields for all extended fields.
+    FormThanksPage.thanksPrologue = ATFieldProperty('thanksPrologue')
+    FormThanksPage.thanksEpilogue = ATFieldProperty('thanksEpilogue')
+    FormThanksPage.noSubmitMessage = ATFieldProperty('noSubmitMessage')
 
     fields = fields + [f for f in DefaultExtender.fields if f.getName() in FROM_BASE_SCHEMA]
 

@@ -5,6 +5,7 @@ from Products.CMFCore.utils import getToolByName
 
 extenders = [extender.FormFolderExtender,
              extender.BaseFormFieldExtender,
+             extender.FormMailerAdapterExtender,
              extender.ThanksPageExtender,
              extender.FGLikertFieldExtender,
              extender.FieldsetFolderExtender]
