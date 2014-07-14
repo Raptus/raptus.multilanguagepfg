@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b4 (unreleased)
+1.0b4 (2014-07-14)
 ------------------
 
 - Extended the following FormMailerAdapter fields to add support for multilingualism: msg_subjejct, body_pre, body_post, body_footer.
